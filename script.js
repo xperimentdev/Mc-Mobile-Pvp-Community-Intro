@@ -122,3 +122,31 @@ opacity:0;
 document.head.appendChild(style);
 
 console.log("⚔ MC Mobile Tier List Loaded Successfully!");
+function animateValue(id, end, speed){
+
+const element = document.getElementById(id);
+
+if(!element) return;
+
+let start = 0;
+
+const timer = setInterval(()=>{
+
+start++;
+
+element.textContent = start;
+
+if(start>=end){
+
+clearInterval(timer);
+
+}
+
+},speed);
+
+}
+
+animateValue("members",1200,2);
+animateValue("tests",850,3);
+animateValue("ranks",420,5);
+animateValue("staff",35,50);
