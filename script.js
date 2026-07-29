@@ -150,3 +150,55 @@ animateValue("members",1200,2);
 animateValue("tests",850,3);
 animateValue("ranks",420,5);
 animateValue("staff",35,50);
+// Mouse Glow Effect
+document.addEventListener("mousemove",(e)=>{
+
+let glow=document.getElementById("cursorGlow");
+
+if(!glow){
+
+glow=document.createElement("div");
+
+glow.id="cursorGlow";
+
+document.body.appendChild(glow);
+
+Object.assign(glow.style,{
+position:"fixed",
+width:"220px",
+height:"220px",
+borderRadius:"50%",
+pointerEvents:"none",
+background:"radial-gradient(circle, rgba(34,197,94,.15), transparent 70%)",
+transform:"translate(-50%,-50%)",
+zIndex:"0"
+});
+
+}
+
+glow.style.left=e.clientX+"px";
+glow.style.top=e.clientY+"px";
+
+});const topBtn=document.getElementById("topBtn");
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>400){
+topBtn.style.display="block";
+}else{
+topBtn.style.display="none";
+}
+
+});
+
+topBtn.addEventListener("click",()=>{
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+});
+
+// Search placeholder (for future use)
+console.log("MC Mobile Tier List V10 Loaded");
